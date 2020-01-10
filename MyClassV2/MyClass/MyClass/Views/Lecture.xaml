@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Ajouter une séance"
+             Visual="Material"
+             x:Class="MyClass.Views.Lecture">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15,20,15,0">
+                <Picker BackgroundColor="White" Margin="0,10,0,10" x:Name="filierePicker" Title="Filière" SelectedIndexChanged="FilierePicker_SelectedIndexChanged">
+
+                    <Picker.Items>
+                        <x:String>Génie Informatique</x:String>
+                        <x:String>Génie Réseaux et Télécoms</x:String>
+                        <x:String>Génie Industriel</x:String>
+                        <x:String>Génie PMC</x:String>
+                    </Picker.Items>
+
+                </Picker>
+                <Picker BackgroundColor="White" Margin="0,10,0,10" x:Name="coursePicker" Title="Module" IsEnabled="False" >
+
+                </Picker>
+                <Button Margin="0,15,0,40" HeightRequest="60" Text="Valider l'absence" Clicked="Button_Clicked"></Button>
+                <ScrollView HeightRequest="500" >
+                <ListView x:Name="listView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="5">
+                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                        <Label Text="{Binding infoFull}" TextColor="Black"/>
+                                        <Label Text="{Binding filiere}" FontSize="Small" TextColor="Gray"/>
+                                    </StackLayout>
+                                    <Switch Toggled="IsAbsent_Toggled"></Switch>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                </ScrollView>
+               </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

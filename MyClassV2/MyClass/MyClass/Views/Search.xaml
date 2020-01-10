@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Chercher"
+             Icon="search.png"
+             x:Class="MyClass.Views.Search">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="MainLayout">
+                <SearchBar Placeholder="Chercher un(e) étudiant(e)..." TextColor="Gray" TextChanged="SearchBar_TextChanged"/>
+                <ListView x:Name="listView" HasUnevenRows="True" IsPullToRefreshEnabled="True"
+                    Refreshing="ListView_Refreshing" ItemSelected="ListViewStudent_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="5">
+                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                        <Label Text="{Binding infoFull}" TextColor="Black"/>
+                                        <Label Text="{Binding filiere}" FontSize="Small" TextColor="Gray"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

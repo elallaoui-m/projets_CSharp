@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cv="clr-namespace:CardView;assembly=CardView"
+             mc:Ignorable="d"
+             x:Class="MyClass.Views.Student_Info">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <cv:CardView Margin="10,10,10,10" CardViewHasShadow="True" >
+                    <cv:CardView.CardViewContent>
+                        <StackLayout Padding="10,10,10,10">
+                            <Label Font="Bold,16" Text="Les informations personnelles" />
+                            <BoxView   VerticalOptions="Center"       
+                                       HorizontalOptions="Center"   
+                                       HeightRequest="1"      
+                                       WidthRequest="200" 
+                                       Color="#5b5d68"></BoxView>
+                            <Label Text="Nom Complet : " Font="Bold,14"></Label>
+                            <Label x:Name="nom" />
+                            <Label Text="Email : " Font="Bold,14"></Label>
+                            <Label x:Name="email" />
+                            <Label Text="CNE : " Font="Bold,14"></Label>
+                            <Label x:Name="cne" />
+                        </StackLayout>
+                    </cv:CardView.CardViewContent>
+                </cv:CardView>
+                <cv:CardView Margin="10,10,10,10" CardViewHasShadow="True" >
+                    <cv:CardView.CardViewContent>
+                        <StackLayout Padding="10,10,10,10">
+                            <Label Font="Bold,16" Text="Les informations scolaires" />
+                            <BoxView   VerticalOptions="Center"       
+                                       HorizontalOptions="Center"   
+                                       HeightRequest="1"      
+                                       WidthRequest="200" 
+                                       Color="#5b5d68"></BoxView>
+                            <Label Text="Filiere : " Font="Bold,14"></Label>
+                            <Label x:Name="filiere" />
+                            <Label Text="Nombre d'absences : " Font="Bold,14"></Label>
+                            <Label x:Name="nb_abs" />
+                        </StackLayout>
+                    </cv:CardView.CardViewContent>
+                </cv:CardView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

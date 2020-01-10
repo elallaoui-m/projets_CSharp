@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyClass.Views.Absence"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Absence"
+    Icon="list.png"
+    Visual="Material"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <ListView
+                    x:Name="listView"
+                    HasUnevenRows="True"
+                    IsPullToRefreshEnabled="True"
+                    Refreshing="ListView_Refreshing"
+                    ItemSelected="ListView_ItemSelected">
+                  <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell> 
+                                <StackLayout Padding="5" Orientation="Horizontal">
+                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                        <Label Text="{Binding courseName}" TextColor="Black" />
+                                        <Label
+                                            FontSize="Small"
+                                            Text="{Binding filiereName}"
+                                            TextColor="Gray" />
+                                    </StackLayout>
+                                    <Label Text="{Binding dateTime}" TextColor="Black" />
+                                </StackLayout>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Supprimer" Clicked="MenuItem_Clicked" IsDestructive="true" CommandParameter="{Binding .}"/>
+                                </ViewCell.ContextActions>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
