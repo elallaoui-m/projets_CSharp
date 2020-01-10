@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="gestion_etudiant_wpf" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=gestion_etudiant_wpf;Integrated Security=True" SettingsObjectName="Projet3_WPF.Properties.Settings" SettingsPropertyName="gestion_etudiant_wpfConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.filiere" Member="filiere">
+    <Type Name="filiere">
+      <Column Name="id_filiere" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nom_filiere" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="resp" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="filiere_etudiant" Member="etudiant" ThisKey="id_filiere" OtherKey="id_filiere" Type="etudiant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.etudiant" Member="etudiant">
+    <Type Name="etudiant">
+      <Column Name="id_etudiant" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cne" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="prenom" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="picture" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="sexe" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="date_naissance" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="tele" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="id_filiere" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="filiere_etudiant" Member="filiere" ThisKey="id_filiere" OtherKey="id_filiere" Type="filiere" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.users" Member="users">
+    <Type Name="user">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="login" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="pass" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
